@@ -1,9 +1,10 @@
 import { CATEGORY_REPOSITORY } from './category.providers';
-import { Category } from 'src/category/entities/category.entity';
-import { Repository } from 'typeorm';
-import { Inject, Injectable } from '@nestjs/common';
-import { CreateCategoryDto } from './dto/create-category.dto';
 import { UpdateCategoryDto } from './dto/update-category.dto';
+import { Category } from './entities/category.entity';
+import { Inject, Injectable } from '@nestjs/common';
+import { Repository } from 'typeorm';
+import { CreateCategoryDto } from './dto/create-category.dto';
+
 
 @Injectable()
 export class CategoryService {

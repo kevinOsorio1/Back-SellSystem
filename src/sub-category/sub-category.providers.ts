@@ -1,6 +1,6 @@
-import { DATABASE_CONNECTION } from 'src/database.providers';
-import { SubCategory } from 'src/sub-category/entities/sub-category.entity';
-import { Connection } from "typeorm";
+import { DATABASE_CONNECTION } from './../database.providers';
+import { SubCategory } from './entities/sub-category.entity';
+import { Connection } from 'typeorm';
 
 export const SUBCATEGORY_REPOSITORY = "SUBCATEGORY_REPOSITORY"
 export const subCategoryProviders = [

@@ -1,10 +1,11 @@
-import { getRepository, Repository } from 'typeorm';
+import { Product } from './../product/entities/product.entity';
+import { UpdateSubCategoryDto } from './dto/update-sub-category.dto';
+import { CreateSubCategoryDto } from './dto/create-sub-category.dto';
+import { SubCategory } from './entities/sub-category.entity';
+import { Repository, getRepository } from 'typeorm';
 import { SUBCATEGORY_REPOSITORY } from './sub-category.providers';
 import { Inject, Injectable } from '@nestjs/common';
-import { CreateSubCategoryDto } from './dto/create-sub-category.dto';
-import { UpdateSubCategoryDto } from './dto/update-sub-category.dto';
-import { SubCategory } from './entities/sub-category.entity';
-import { Product } from 'src/product/entities/product.entity';
+
 
 @Injectable()
 export class SubCategoryService {
@@ -22,7 +23,7 @@ export class SubCategoryService {
   }
 
   async findOne(id: number): Promise<SubCategory> {
-    return this.subCategoryRepository.findOne(id);
+    return this.subCategoryRepository.findOneOrFail(id);
   }
 
   update(id: number, updateSubCategoryDto: UpdateSubCategoryDto) {

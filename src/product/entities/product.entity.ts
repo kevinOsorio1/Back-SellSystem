@@ -10,24 +10,24 @@ export class Product {
   @Column({ length: 500 })
   name: string;
 
-  @Column()
+  @Column({nullable: true})
   serial_number: number
 
-  @Column()
+  @Column({nullable: true})
   sku: string;
 
-  @Column()
-  price: number;
+  @Column({nullable: true})
+  price?: number;
 
-  @Column()
-  discount: number;
+  @Column({nullable: true})
+  discount?: number;
 
-  @Column()
-  photo: string;
+  @Column({nullable: true})
+  photo?: string;
 
-  @ManyToOne(() => Category, (category) => category.products)
-  category: Category;
+  @ManyToOne(() => Category, (category) => category.products,{nullable: true})
+  category?: Category;
 
-  @ManyToOne(() => SubCategory, (subcategory) => subcategory.products)
-  subCategory: SubCategory;
+  @ManyToOne(() => SubCategory, (subcategory) => subcategory.products,{nullable: true})
+  subCategory?: SubCategory;
 }

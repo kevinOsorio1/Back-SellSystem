@@ -1,8 +1,8 @@
-import { Controller, Get, Post, Body, Put, Param, Delete } from '@nestjs/common';
-import { SubCategoryService } from './sub-category.service';
-import { CreateSubCategoryDto } from './dto/create-sub-category.dto';
-import { UpdateSubCategoryDto } from './dto/update-sub-category.dto';
-import { Product } from 'src/product/entities/product.entity';
+import { Body, Controller, Delete, Get, Param, Post, Put } from "@nestjs/common";
+import { CreateSubCategoryDto } from "./dto/create-sub-category.dto";
+import { UpdateSubCategoryDto } from "./dto/update-sub-category.dto";
+import { SubCategoryService } from "./sub-category.service";
+
 
 @Controller('sub-category')
 export class SubCategoryController {
@@ -19,22 +19,22 @@ export class SubCategoryController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
+  findOne(@Param('id') id: number) {
     return this.subCategoryService.findOne(+id);
   }
 
   @Put(':id')
-  update(@Param('id') id: string, @Body() updateSubCategoryDto: UpdateSubCategoryDto) {
+  update(@Param('id') id: number, @Body() updateSubCategoryDto: UpdateSubCategoryDto) {
     return this.subCategoryService.update(+id, updateSubCategoryDto);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
+  remove(@Param('id') id: number) {
     return this.subCategoryService.remove(+id);
   }
 
   @Get('/:id/products')
-  findProducts(@Param('id') id: string){
+  findProducts(@Param('id') id: number){
     return this.subCategoryService.findProducts(+id);
   }
   
